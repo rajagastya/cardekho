@@ -95,18 +95,9 @@ npm run dev
 
 Point Render at the `backend` folder.
 
-- Runtime: `Java`
-- Build command:
-
-```bash
-mvn clean package -DskipTests
-```
-
-- Start command:
-
-```bash
-java -jar target/cardekho-ai-buyer-backend.jar
-```
+- Runtime: `Docker`
+- Render currently does not list Java as a native runtime, so this backend should be deployed with the included [backend/Dockerfile](D:\Cardekho\backend\Dockerfile).
+- No separate build/start command is required when using the Docker runtime unless you want to override the Dockerfile behavior.
 
 - Health check path: `/health`
 
@@ -116,7 +107,7 @@ Set these environment variables in Render:
 - `CORS_ALLOWED_ORIGINS` = your Vercel frontend URL
   - Example: `https://your-app.vercel.app`
 
-Render will provide `PORT` automatically and the app is already configured to use it.
+Render will provide `PORT` automatically and the Docker entrypoint already passes it into Spring Boot.
 
 You can also use the root [render.yaml](D:\Cardekho\render.yaml) blueprint if you want Render to prefill the backend service config.
 

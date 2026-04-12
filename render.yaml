@@ -1,11 +1,9 @@
 services:
   - type: web
     name: cardekho-ai-buyer-backend
-    runtime: java
+    runtime: docker
     rootDir: backend
     plan: free
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -jar target/cardekho-ai-buyer-backend.jar
     healthCheckPath: /health
     envVars:
       - key: GEMINI_API_KEY
